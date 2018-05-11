@@ -11,6 +11,8 @@ void serialReadInit(){
   RW=0;
   Databuf[8]={0};
   addr=0;
+  Serial.begin(115200);
+  Serial.setTimeout(10);
 }
 
 
@@ -55,5 +57,5 @@ int serialRead(int sel){
         break;
     }
   }
-  return (sel)?(speed_l):(speed_r);
+  return (sel)?(speed_l):(speed_r);//0~100 //100 time angular speed 
 }

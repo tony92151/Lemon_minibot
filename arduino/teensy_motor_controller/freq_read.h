@@ -1,14 +1,14 @@
-#include <FreqMeasureMulti.h>
+//#include <FreqMeasureMulti.h>
 //#include <Adafruit_NeoPixel.h>
 
-FreqMeasureMulti freq_l;
-FreqMeasureMulti freq_r;
+//FreqMeasureMulti freq_l;
+//FreqMeasureMulti freq_r;
 
  
 float sum1=0, sum2=0, sum3=0;
-int count1=0, count2=0, count3=0;
+volatile uint16_t count_L=0, count_R=0;
 
-static int _time=millis();
+static int _time = 0;
 static int FL = 0;
 static int FR = 0;
 static float WL = 0;
@@ -16,38 +16,36 @@ static float WR = 0;
 int dL,dR;
 int rate;
 
+void interrupt_L(){count_L++;}
+void interrupt_R(){count_R++;}
+
 void freq_init(int left ,int right,int DL,int DR,int Rate){
-  freq_l.begin(left);
-  freq_r.begin(right);
+  //freq_l.begin(left);
+  //freq_r.begin(right);
   dL = DL;
   dR = DR;
   rate = Rate;
   //freq_l.begin(6);
   //freq_r.begin(9);
+  attachInterrupt(digitalPinToInterrupt(left), interrupt_L, FALLING);
+  attachInterrupt(digitalPinToInterrupt(right), interrupt_R, FALLING);
+  
 }
 
+
 float freq_read(int mode,int PPR){
-  if (freq_l.available()) {
-    sum1 = sum1 + freq_l.read();
-    count1 = count1 + 1;
-  }
-  if (freq_r.available()) {
-    sum2 = sum2 + freq_r.read();
-    count2 = count2 + 1;
-  }
+  
   if(millis()-_time>=rate){
     _time = millis();
-    FL = (int)freq_l.countToFrequency(sum1 / count1);
-    FR = (int)freq_r.countToFrequency(sum2 / count2);
+    FL = count_L*(1000/rate);
+    FR = count_R*(1000/rate);
     WL = (float)FL/(float)PPR; //rad/s
     WR = (float)FR/(float)PPR; //rad/s
-    (digitalRead(dL))?(WL = WL):(WL = WL*(-1));
-    (digitalRead(dR))?(WR = WR):(WR = WR*(-1));
-    sum1 = 0;
-    sum2 = 0;
-    count1 = 0;
-    count2 = 0; 
-    return (mode)?(WL):(WR);
+    WL = (digitalRead(dL))?(WL):(WL*(-1));
+    WR = (digitalRead(dR))?(WR):(WR*(-1));
+    count_L = 0;
+    count_R = 0; 
+    //return (mode)?(WL):(WR);
   }
   return (mode)?(WL):(WR);
 }
