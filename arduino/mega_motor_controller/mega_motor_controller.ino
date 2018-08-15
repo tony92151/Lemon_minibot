@@ -33,7 +33,7 @@
 #define readRate 100 //ms  ,motor encoder read rate
 
 //setup serial print rate
-//#define printRate 200 //ms
+#define printRate 200 //ms
 
 
 float motorSendL = 0;
@@ -43,9 +43,9 @@ float WR_send = 0;
 float serialRead_L;
 float serialRead_R;
 
-int latchPin = 8;
-int dataPin = 9;
-int clockPin = 7;
+#define latchPin  8
+#define dataPin  9
+#define clockPin  7
 
 
 void Run(int n,int _n,int dir,int spe);
