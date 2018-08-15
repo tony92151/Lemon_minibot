@@ -25,15 +25,15 @@ int serialRead(int sel){
         break;
       case ')':
         RW=0;
-        if(((int)Databuf[0]-48)==0){
-          speed_r=((int)Databuf[1]-48)*100+((int)Databuf[2]-48)*10+((int)Databuf[3]-48)*1;
+        if(((int)Databuf[0]-48)!=0){
+          speed_l=((int)Databuf[1]-48)*100+((int)Databuf[2]-48)*10+((int)Databuf[3]-48)*1;
         }else{
-          speed_r=(((int)Databuf[1]-48)*100+((int)Databuf[2]-48)*10+((int)Databuf[3]-48)*1)*(-1);
+          speed_l=(((int)Databuf[1]-48)*100+((int)Databuf[2]-48)*10+((int)Databuf[3]-48)*1)*(-1);
         }
-        if(((int)Databuf[4]-48)==0){
-          speed_l=((int)Databuf[5]-48)*100+((int)Databuf[6]-48)*10+((int)Databuf[7]-48)*1;
+        if(((int)Databuf[4]-48)!=0){
+          speed_r=((int)Databuf[5]-48)*100+((int)Databuf[6]-48)*10+((int)Databuf[7]-48)*1;
         }else{
-          speed_l=(((int)Databuf[5]-48)*100+((int)Databuf[6]-48)*10+((int)Databuf[7]-48)*1)*(-1);
+          speed_r=(((int)Databuf[5]-48)*100+((int)Databuf[6]-48)*10+((int)Databuf[7]-48)*1)*(-1);
         }
         addr=0;
         break;
