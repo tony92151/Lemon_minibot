@@ -5,7 +5,7 @@ byte shiftIn(int myDataPin, int myClockPin);
 float sum1=0, sum2=0, sum3=0;
 volatile uint16_t count_L=0, count_R=0;
 
-static int _time = 0;
+uint16_t  _time = 0;
 static int FL = 0;
 static int FR = 0;
 

@@ -3,7 +3,7 @@ byte shiftIn(int myDataPin, int myClockPin);
 byte switchVar1 = 0;
 byte switchVar2 = 0;
 
-static int _time = 0;
+uint32_t _time = 0;
 static int FL = 0;
 static int FR = 0;
 
@@ -54,6 +54,7 @@ float freq_read(int mode,float PPR){
     switchVar1 = shiftIn(dataPin, clockPin);
     //Serial.println(switchVar1, BIN);
     switchVar2 = shiftIn(dataPin, clockPin);
+    //Serial.println(switchVar2, BIN);
     
     FL = (int)switchVar1*(1000/rate);
     FR = (int)switchVar2*(1000/rate);

@@ -1,7 +1,8 @@
-uint16_t Time = millis();
+uint32_t Time = millis();
 
 void printSpeed(float WL,float WR,int rate){
   if(millis()-Time>=rate){
+    Time = millis();
     int IWR = abs(WR)*100; //turn 100 time float type to int type 
     int IWL = abs(WL)*100;
     String SWR = (String)IWR;
@@ -19,6 +20,7 @@ void printSpeed(float WL,float WR,int rate){
     //(!WL>0)?(SWL ='0'+SWL):(SWL ='1'+SWL); //if need to invert
   
     Serial.println(SWL+SWR);
+    Serial.flush();
     if(0){ //debug option
       Serial.print(" WL= ");
       Serial.print(SWL);
@@ -26,6 +28,5 @@ void printSpeed(float WL,float WR,int rate){
       Serial.print(SWR);
       Serial.println(" (rad/s) ");
     }
-    Time = millis();
   }
 }
