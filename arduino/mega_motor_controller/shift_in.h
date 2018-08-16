@@ -19,6 +19,7 @@ int dL,dR;
 int rate;
 
 void freq_init(int LatchPin ,int DataPin, int ClockPin,int ResetPin,int DL,int DR,int Rate){
+  
   latchPin = LatchPin;
   dataPin = DataPin;
   clockPin = ClockPin;
@@ -60,12 +61,15 @@ float freq_read(int mode,float PPR){
     FR = (int)switchVar2*(1000/rate);
     WL = (float)FL/(float)PPR; //rad/s
     WR = (float)FR/(float)PPR; //rad/s
-    WL = (digitalRead(dL))?(WL):(WL*(-1.0));
+    WL = (!digitalRead(dL))?(WL):(WL*(-1.0));
     WR = (digitalRead(dR))?(WR):(WR*(-1.0));
     //return (mode)?(WL):(WR);
   }
   digitalWrite(resetPin,0);
   //digitalWrite(latchPin,0);
+  //Serial.println(digitalRead(dL));
+  //Serial.print("    ");
+  //Serial.println(digitalRead(dR));
   return (mode)?(WL):(WR);
 }
 

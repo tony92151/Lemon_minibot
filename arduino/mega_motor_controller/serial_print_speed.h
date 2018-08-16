@@ -10,8 +10,8 @@ void printSpeed(float WL,float WR,int rate){
     while(SWR.length()<3){SWR = '0'+SWR;}
     while(SWL.length()<3){SWL = '0'+SWL;}
 
-    SWL = (!WL>0)?('0'+SWL):('1'+SWL);
-    SWR = (WR>0)?('0'+SWR):('1'+SWR);
+    SWL = (WL>0)?('1'+SWL):('0'+SWL);
+    SWR = (WR>0)?('1'+SWR):('0'+SWR);
     
     //(WR>0)?(SWR ='0'+SWR):(SWR ='1'+SWR);
     //(!WL>0)?(SWL ='0'+SWL):(SWL ='1'+SWL);

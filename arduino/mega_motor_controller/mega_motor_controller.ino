@@ -73,6 +73,10 @@ void loop() {
   WL_send = freq_read(0,PPR);//(rad/s)  //0:left
   WR_send = freq_read(1,PPR);           //1:right
 
+  //Serial.print(WL_send);
+  //Serial.print("   ");
+  //Serial.println(WR_send);
+
   printSpeed(WL_send,WR_send,printRate);
 
   serialRead_L = (float)serialRead(0)/100.0; //0:left
@@ -85,16 +89,19 @@ void loop() {
   motorSendR = (float)PIDstep(0,serialRead_R,WR_send);
   //motorSendR =-100.0;
 
+  //Serial.println(motorSendL);
+  //Serial.println(motorSendR);
+
   //if(motorSendR<0)Serial.println(motorSendL);
   //Serial.println(motorSendR);
   
-  Run(motorA,motorA_,pwmA,(!(int)motorSendL>0)?(1):(0),abs(motorSendL));
+  Run(motorA,motorA_,pwmA,((int)motorSendL>0)?(0):(1),abs(motorSendL));
   Run(motorB,motorB_,pwmB,((int)motorSendR>0)?(1):(0),abs(motorSendR));
 
   //Serial.println(" ");
   //Serial.println(motorSendL);
   
-  //Run(motorA,motorA_,pwmA,1,100); //(pin)pwmA control left motor
+  //Run(motorA,motorA_,pwmA,0,100); //(pin)pwmA control left motor
   //Run(motorB,motorB_,pwmB,1,100); //(pin)pwmB control right motor
   //digitalWrite(motorB,HIGH);
   

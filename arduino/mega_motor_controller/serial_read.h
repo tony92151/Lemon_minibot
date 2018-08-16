@@ -57,5 +57,5 @@ int serialRead(int sel){
         break;
     }
   }
-  return (sel)?(speed_l):(speed_r);//0~100 //100 time angular speed 
+  return (!sel)?(speed_l):(speed_r);//0~100 //100 time angular speed 
 }
