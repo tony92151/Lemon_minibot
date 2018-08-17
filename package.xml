@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>motor_serial</name>
+  <name>lemon_minibot</name>
   <version>0.0.0</version>
-  <description>The motor_serial package</description>
+  <description>The lemon_minibot package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->

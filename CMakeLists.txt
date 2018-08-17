@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(motor_serial)
+project(lemon_minibot)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -7,10 +7,18 @@ project(motor_serial)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
+
 find_package(catkin REQUIRED COMPONENTS
+  costmap_2d
+  dynamic_reconfigure
+  geometry_msgs
+  message_generation
+  move_base
   roscpp
   rospy
   std_msgs
+  tf
+  visualization_msgs
 )
 
 ## System dependencies are found with CMake's conventions

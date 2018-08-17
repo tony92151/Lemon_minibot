@@ -1,0 +1,13 @@
+<launch>
+	<arg name="use_joy" default="false" />
+
+
+	<!-- choose if use joystick -->
+	<group if="$(arg use_joy)">
+		<include file="$(find joy)/launch/joy2t.launch"/>
+	</group>
+	<group unless="$(arg use_joy)">
+		<node pkg="lemon_minibot" name="keyboard_teleop" type="keyboard_teleop.py" output="screen"/>
+	</group>
+
+</launch>

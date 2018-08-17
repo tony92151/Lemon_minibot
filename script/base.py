@@ -27,6 +27,15 @@ class BaseControl:
             self.serial = serial.Serial('/dev/ttyUSB0' , 115200, timeout= 0.5 )
             rospy.loginfo("Connect success ...")
 
+            try:
+                print ("Flusing first 50 data readings ...")
+                for x in range(0, 50):
+                    data = ser.read()
+                    time.sleep(0.01)
+            except:
+                print ("Flusing faile ")
+                sys.exit(0)
+
         except serial.serialutil.SerialException:
             rospy.logerr("Can not receive data from the port: "#+ self.device_port + 
             ". Did you specify the correct port ?")
