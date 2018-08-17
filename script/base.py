@@ -71,7 +71,7 @@ class BaseControl:
     def timerOdomCB(self, event):
         # Serial read & publish 
         try:
-            myData = self.serial.readline().strip()
+            myData = self.serial.readline(8).strip()
             if len(myData)>0:
             	WL = int(myData[1])*100+int(myData[2])*10+int(myData[3])
             	WR = int(myData[5])*100+int(myData[6])*10+int(myData[7])
