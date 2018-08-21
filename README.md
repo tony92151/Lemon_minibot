@@ -25,8 +25,17 @@ $ cd catkin_ws/src
 
 $ git clone https://github.com/EAIBOT/ydlidar
 
+
+For joystick
+
+$ git clone https://github.com/tony92151/joystick_drivers.git
+
+For lemon minibot
+
+$ git clone https://github.com/tony92151/Lemon_minibot.git
+
+Compile All
+
 $ cd ..
 
-$ catkin_make
-
-
+$ catlin_make
