@@ -50,6 +50,8 @@ float freq_read(int mode,float PPR){
     digitalWrite(latchPin,0);
     //digitalWrite(resetPin,1);
     digitalWrite(resetPin,1);
+    delayMicroseconds(2);
+    digitalWrite(resetPin,0);
 
     //shift in
     switchVar1 = shiftIn(dataPin, clockPin);
@@ -65,7 +67,7 @@ float freq_read(int mode,float PPR){
     WR = (digitalRead(dR))?(WR):(WR*(-1.0));
     //return (mode)?(WL):(WR);
   }
-  digitalWrite(resetPin,0);
+  //digitalWrite(resetPin,0);
   //digitalWrite(latchPin,0);
   //Serial.println(digitalRead(dL));
   //Serial.print("    ");

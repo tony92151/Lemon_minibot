@@ -20,8 +20,9 @@ class BaseControl:
         self.VxCov = float( rospy.get_param('~vx_cov', '1.0') ) # covariance for Vx measurement
         self.VyawCov = float( rospy.get_param('~vyaw_cov', '1.0') ) # covariance for Vyaw measurement
         self.pub_tf = bool(rospy.get_param('~pub_tf', True)) # whether publishes TF or not
-        self.wheelRad = float(0.068/2.0) #m
+        self.wheelRad = float(0.072/2.0) #m
         self.wheelSep = float(0.17) #m
+        self.scale = rospy.get_param('~scale', '1.0')
 
         try:
             self.serial = serial.Serial('/dev/mega_controller' , 115200, timeout= 0.5 )
@@ -93,8 +94,8 @@ class BaseControl:
                 rospy.loginfo(myData)
             #print "serialRead success~"
             # Twist
-            VL = WL * self.wheelRad*6 # V = omega * radius, unit: m/s
-            VR = WR * self.wheelRad*6
+            VL = WL * self.wheelRad*self.scale # V = omega * radius, unit: m/s
+            VR = WR * self.wheelRad*self.scale
             Vyaw = (VR-VL)/self.wheelSep
             Vx = (VR+VL)/2.0
             #print "Twist success~"
