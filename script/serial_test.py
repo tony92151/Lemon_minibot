@@ -5,7 +5,7 @@ import time
 import sys, select, termios, tty
 
 try:
-    ser = serial.Serial('/dev/ttyUSB0' , 115200, timeout= 0.5 )
+    ser = serial.Serial('/dev/mega_controller' , 115200, timeout= 0.5 )
     print ("Connect success ...")
     time.sleep(1)
     try:

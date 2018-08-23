@@ -21,7 +21,7 @@ class BaseControl:
         self.VyawCov = float( rospy.get_param('~vyaw_cov', '1.0') ) # covariance for Vyaw measurement
         self.pub_tf = bool(rospy.get_param('~pub_tf', True)) # whether publishes TF or not
         self.wheelRad = float(0.068/2.0) #m
-        self.wheelSep = float(0.33) #m
+        self.wheelSep = float(0.17) #m
 
         try:
             self.serial = serial.Serial('/dev/ttyUSB0' , 115200, timeout= 0.5 )
@@ -30,7 +30,7 @@ class BaseControl:
             try:
                 print ("Flusing first 50 data readings ...")
                 for x in range(0, 50):
-                    data = ser.read()
+                    data = self.serial.read()
                     time.sleep(0.01)
             except:
                 print ("Flusing faile ")
@@ -93,8 +93,8 @@ class BaseControl:
                 rospy.loginfo(myData)
             #print "serialRead success~"
             # Twist
-            VL = WL * self.wheelRad # V = omega * radius, unit: m/s
-            VR = WR * self.wheelRad
+            VL = WL * self.wheelRad*6 # V = omega * radius, unit: m/s
+            VR = WR * self.wheelRad*6
             Vyaw = (VR-VL)/self.wheelSep
             Vx = (VR+VL)/2.0
             #print "Twist success~"
@@ -150,8 +150,8 @@ class BaseControl:
 
     def timerCmdCB(self, event):
 
-        self.WR_send = int(self.trans_x - self.wheelSep*self.rotat_z)
-        self.WL_send = int(self.trans_x + self.wheelSep*self.rotat_z)
+        self.WR_send = int(self.trans_x - self.wheelSep*self.rotat_z*2)
+        self.WL_send = int(self.trans_x + self.wheelSep*self.rotat_z*2)
         # rospy.logerr("WR_send: "+ chr(self.WR_send))
         # rospy.logerr("WL_send: "+ chr(self.WL_send))       
         if self.WR_send < 0:

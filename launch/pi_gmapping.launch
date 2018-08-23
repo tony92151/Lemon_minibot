@@ -1,6 +1,6 @@
 <launch>
 	<!-- base node -->
-	<node pkg="lemon_minibot" name="base"  type="base.py" output="screen">
+	<node pkg="lemon_minibot" name="base"  type="base.py" output="screen"/>
 
 	<!-- star ydlidar  -->
 	<include file="$(find lemon_minibot)/launch/ydlidar.launch"/>
