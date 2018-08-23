@@ -14,8 +14,8 @@ from nav_msgs.msg import Odometry
 class BaseControl:
     def __init__(self):        
         self.odom_freq = float( rospy.get_param('~odom_freq', '50') ) # hz of odom pub
-        self.odom_topic = rospy.get_param('~odom_topic', '/odom') # topic name
-        self.baseId = rospy.get_param('~base_id', 'base_footprint') # base link
+        self.odom_topic = rospy.get_param('~odom_topic', '/odom/odom_encoder') # topic name
+        self.baseId = rospy.get_param('~base_id', 'base_link') # base link
         self.odomId = rospy.get_param('~odom_id', 'odom') # odom link
         self.VxCov = float( rospy.get_param('~vx_cov', '1.0') ) # covariance for Vx measurement
         self.VyawCov = float( rospy.get_param('~vyaw_cov', '1.0') ) # covariance for Vyaw measurement
@@ -54,7 +54,7 @@ class BaseControl:
         self.pub = rospy.Publisher(self.odom_topic, Odometry, queue_size=10)
 
 
-        self.timer_odom = rospy.Timer(rospy.Duration(1.0/10), self.timerOdomCB)
+        self.timer_odom = rospy.Timer(rospy.Duration(0.1), self.timerOdomCB)
         self.timer_cmd = rospy.Timer(rospy.Duration(0.1), self.timerCmdCB) # 10Hz
         self.tf_broadcaster = tf.TransformBroadcaster()
 

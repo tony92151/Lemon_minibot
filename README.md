@@ -30,6 +30,10 @@ For joystick
 
 $ git clone https://github.com/tony92151/joystick_drivers.git
 
+For rf2o
+
+$ git clone https://github.com/MAPIRlab/rf2o_laser_odometry
+
 For lemon minibot
 
 $ git clone https://github.com/tony92151/Lemon_minibot.git
