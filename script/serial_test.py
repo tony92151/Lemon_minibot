@@ -19,6 +19,7 @@ try:
 except:
     print ("Connect faile ...")
     print (". Did you specify the correct port ?")
+    print ("Did you run dev rule? See ~/catkin_ws/src/Lemon_minibot/starup")
     sys.exit(0)
 
 # while True:

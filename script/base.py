@@ -24,7 +24,7 @@ class BaseControl:
         self.wheelSep = float(0.17) #m
 
         try:
-            self.serial = serial.Serial('/dev/ttyUSB0' , 115200, timeout= 0.5 )
+            self.serial = serial.Serial('/dev/mega_controller' , 115200, timeout= 0.5 )
             rospy.loginfo("Connect success ...")
 
             try:
