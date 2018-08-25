@@ -4,9 +4,13 @@
 
 	<!-- base node -->
 	<node pkg="lemon_minibot" name="base"  type="base.py" output="screen">
+<<<<<<< HEAD
 		<!-- some times, the encoder will not correct, we can scale it -->
 		<param name="scale"   value="2"/> 
 		<param name="pub_tf"   value="false"/>   
+=======
+	<param name="scale"   value="2"/>   
+>>>>>>> master
 	</node>
 
 	<!-- star ydlidar  -->
