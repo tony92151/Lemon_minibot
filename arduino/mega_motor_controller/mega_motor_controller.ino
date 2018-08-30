@@ -33,7 +33,7 @@
 
 //motor defination
 #define PPR  374.22
-#define readRate 50 //ms  ,motor encoder read rate
+#define readRate 100 //ms  ,motor encoder read rate
 
 //setup serial print rate
 #define printRate 100 //ms
