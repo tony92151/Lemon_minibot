@@ -2,6 +2,8 @@
 
 <launch>
 
+    <arg name="odom_frame" default="odom" />
+
     <!-- gmapping -->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" >
         <remap from="scan" to="scan"/>
@@ -33,7 +35,7 @@
         <param name="llsamplestep" value="0.01"/>
         <param name="lasamplerange" value="0.005"/>
         <param name="lasamplestep" value="0.005"/>
-        <param name="odom_frame" value="odom"/>
+        <param name="odom_frame" value="$(arg odom_frame)"/>
         <param name="base_frame" value="base_footprint"/>
     </node>
 
