@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+	<param name="output_frame" value="odom_combined"/>
+
+	<!-- base node -->
+	<node pkg="lemon_minibot_core" name="base"  type="base.py" output="screen">
+		<!-- some times, the encoder will not correct, we can scale it -->
+		<param name="scale"   value="2"/> 
+		<param name="pub_tf"   value="false"/>   
+		<param name="scale"   value="2"/>   
+	</node>
+
+	<!-- star ydlidar  -->
+	<include file="$(find lemon_minibot_core)/launch/ydlidar.launch"/>
+
+	<!-- rf2o -->
+	<node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_laser_odometry" output="screen">
+	    <param name="laser_scan_topic" value="/scan"/>        # topic where the lidar scans are being published
+	    <param name="odom_topic" value="/odom/odom_rf2o" />              # topic where tu publish the odometry estimations
+	    <param name="publish_tf" value="true" />      # wheter or not to publish the tf::transform (base-odom)
+	    <param name="base_frame_id" value="/base_link"/>            # frame_id (tf) of the mobile robot base. A tf transform from the laser_frame to the base_frame is mandatory
+	    <param name="odom_frame_id" value="/odom" />                # frame_id (tf) to publish the odometry estimations    
+	    <param name="init_pose_from_topic" value="/base_pose_ground_truth" /> # (Odom topic) Leave empty to start at point (0,0)
+	    <param name="freq" value="30"/>                            # Execution frequency.
+	    <param name="verbose" value="true" />                       # verbose
+  	</node>
+
+	<!-- robot_pose_ekf -->
+	<node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+  		<param name="output_frame" value="$(arg output_frame)"/>
+		<param name="base_footprint_frame" value="base_footprint"/>
+		<param name="freq" value="30.0"/>
+		<param name="sensor_timeout" value="1.0"/>  
+		<param name="odom_used" value="true"/>
+		<param name="imu_used" value="false"/>
+		<param name="vo_used" value="false"/>
+
+  		<remap from="imu_data" to="imu" />
+
+  		<!-- default subscribe /imu_data  /odom  /vo-->
+
+	</node>
+
+	<!-- open gmapping -->
+	<include file="$(find lemon_minibot_core)/launch/Gmapping.launch">
+		<arg name="odom_frame" value="$(arg output_frame)"/>
+	</include>
+
+</launch>

@@ -1,0 +1,3 @@
+<launch>
+<node pkg="lemon_minibot_core" name="base"  type="base.py" output="screen">
+</launch>
