@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="minibot">
+  <link name="base">
+    <inertial>
+      <origin xyz="0.0390947780640948 0.0485038489028258 0.190832229515931" rpy="0 0 0" />
+      <mass value="0.00112497656106423" />
+      <inertia ixx="6.48286502836828E-06" ixy="1.03232140446618E-21" ixz="3.07702661456495E-10" iyy="1.01708233946637E-05" iyz="4.2881042954749E-21" izz="7.43788023650954E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://minibot/visualSTL/base.STL" />
+      </geometry>
+      <material name="000000">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://minibot/collisionSTL/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="l_whee;">
+    <inertial>
+      <origin xyz="-0.01 -1.5556132770822E-15 1.27675647831893E-15" rpy="0 0 0" />
+      <mass value="0.0714319766280304" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0930787246278284 0.0033654103350226 -0.278465383032101" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://minibot/visualSTL/l_whee;.STL" />
+      </geometry>
+      <material name="00FF00">
+        <color rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0930787246278284 0.0033654103350226 -0.278465383032101" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://minibot/collisionSTL/l_whee;.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="r_wheel">
+    <inertial>
+      <origin xyz="-0.00999999999999998 -2.12763834328555E-15 2.38697950294409E-15" rpy="0 0 0" />
+      <mass value="0.0714319766280304" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.191268280756042 0.00336541033502103 -0.278465383032099" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://minibot/visualSTL/r_wheel.STL" />
+      </geometry>
+      <material name="00FF80">
+        <color rgba="0.501960784313725 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.191268280756042 0.00336541033502103 -0.278465383032099" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://minibot/collisionSTL/r_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="ball">
+    <inertial>
+      <origin xyz="0.0415944103026851 -0.0206481340979434 0.105829165165202" rpy="0 0 0" />
+      <mass value="0.0171572846788051" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://minibot/visualSTL/ball.STL" />
+      </geometry>
+      <material name="FFFF80">
+        <color rgba="0.501960784313725 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://minibot/collisionSTL/ball.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base-l_whee;" type="continuous">
+    <origin xyz="-0.0930787246278284 -0.0033654103350226 0.278465383032101" rpy="0 0 0" />
+    <parent link="base" />
+    <child link="l_whee;" />
+    <axis xyz="-1 -5.50460220501117E-15 4.19506831259459E-15" />
+    <dynamics damping="0" friction="0" />
+  </joint>
+  <joint name="base-r_wheel" type="continuous">
+    <origin xyz="0.191268280756042 -0.00336541033502103 0.278465383032099" rpy="0 0 0" />
+    <parent link="base" />
+    <child link="r_wheel" />
+    <axis xyz="-1 -5.50460220501117E-15 4.19506831259459E-15" />
+    <dynamics damping="0" friction="0" />
+  </joint>
+  <joint name="base-ball" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base" />
+    <child link="ball" />
+    <axis xyz="0 0 0" />
+    <dynamics damping="0" friction="0" />
+  </joint>
+  <gazebo>
+    <plugin name="clock" filename="libgz_clock.so">
+      <topic>/gazebo/frc/time</topic>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin name="l_whee; Simple Motor" filename="libgz_dc_motor.so">
+      <joint>base-l_whee;</joint>
+      <topic>/gazebo/frc/simulator/pwm/1</topic>
+      <multiplier>0</multiplier>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin name="r_wheel Simple Motor" filename="libgz_dc_motor.so">
+      <joint>base-r_wheel</joint>
+      <topic>/gazebo/frc/simulator/pwm/2</topic>
+      <multiplier>0</multiplier>
+    </plugin>
+  </gazebo>
+</robot>
