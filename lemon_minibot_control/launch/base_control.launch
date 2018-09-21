@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-	<param name="odom_used" default="true"/>
-	<param name="imu_used" default="false"/>
-	<param name="vo_used" default="false"/>
+
+	<arg name="only_use_rf2o" default="false" />
+
+	<arg name="pub_tf" default="false"/>
+
+	<arg name="odom_used" default="true"/>
+	<arg name="imu_used" default="false"/>
+	<arg name="vo_used" default="false"/>
 
 	<param name="output_frame" value="odom_combined"/>
 
 	<!-- base node -->
-	<node pkg="lemon_minibot_control" name="base"  type="base.py" output="screen">
+	<node pkg="lemon_minibot_control" name="base_control"  type="base.py" output="screen">
 		<!-- some times, the encoder will not correct, we can scale it -->
 		<param name="scale"   value="2"/> 
 		<param name="pub_tf"   value="false"/>   
@@ -34,5 +39,12 @@
 	<include file="$(find lemon_minibot_core)/launch/Gmapping.launch">
 		<arg name="odom_frame" value="$(arg output_frame)"/>
 	</include>
+
+	<!-- <group if="$(arg only_use_rf2o)">
+		<param name="pub_tf" value="false"/>
+	</group>
+	<group unless="$(arg only_use_rf2o)">
+		<node pkg="lemon_minibot" name="keyboard_teleop" type="keyboard_teleop.py" output="screen"/>
+	</group> -->
 
 </launch>
