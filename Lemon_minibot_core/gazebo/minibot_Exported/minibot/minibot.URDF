@@ -2,9 +2,9 @@
 <robot name="minibot">
   <link name="base">
     <inertial>
-      <origin xyz="0.0390947780640948 0.0485038489028258 0.190832229515931" rpy="0 0 0" />
-      <mass value="0.00112497656106423" />
-      <inertia ixx="6.48286502836828E-06" ixy="1.03232140446618E-21" ixz="3.07702661456495E-10" iyy="1.01708233946637E-05" iyz="4.2881042954749E-21" izz="7.43788023650954E-06" />
+      <origin xyz="0.028746307523209 0.0429482933472703 0.197942297560925" rpy="0 0 0" />
+      <mass value="0.000421866210399086" />
+      <inertia ixx="1.81074557591663E-06" ixy="1.9402978002267E-07" ixz="2.48219121415149E-07" iyy="3.92231157659407E-06" iyz="1.33310998303176E-07" izz="2.31989499346712E-06" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -22,16 +22,16 @@
       </geometry>
     </collision>
   </link>
-  <link name="l_whee;">
+  <link name="l_whee">
     <inertial>
-      <origin xyz="-0.01 -1.5556132770822E-15 1.27675647831893E-15" rpy="0 0 0" />
+      <origin xyz="-0.01 -1.55474591534421E-15 1.27675647831893E-15" rpy="0 0 0" />
       <mass value="0.0714319766280304" />
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
     </inertial>
     <visual>
       <origin xyz="0.0930787246278284 0.0033654103350226 -0.278465383032101" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://minibot/visualSTL/l_whee;.STL" />
+        <mesh filename="package://minibot/visualSTL/l_whee.STL" />
       </geometry>
       <material name="00FF00">
         <color rgba="0 1 0 1" />
@@ -40,7 +40,7 @@
     <collision>
       <origin xyz="0.0930787246278284 0.0033654103350226 -0.278465383032101" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://minibot/collisionSTL/l_whee;.STL" />
+        <mesh filename="package://minibot/collisionSTL/l_whee.STL" />
       </geometry>
     </collision>
   </link>
@@ -88,10 +88,10 @@
       </geometry>
     </collision>
   </link>
-  <joint name="base-l_whee;" type="continuous">
+  <joint name="base-l_whee" type="continuous">
     <origin xyz="-0.0930787246278284 -0.0033654103350226 0.278465383032101" rpy="0 0 0" />
     <parent link="base" />
-    <child link="l_whee;" />
+    <child link="l_whee" />
     <axis xyz="-1 -5.50460220501117E-15 4.19506831259459E-15" />
     <dynamics damping="0" friction="0" />
   </joint>
@@ -116,7 +116,7 @@
   </gazebo>
   <gazebo>
     <plugin name="l_whee; Simple Motor" filename="libgz_dc_motor.so">
-      <joint>base-l_whee;</joint>
+      <joint>base-l_whee</joint>
       <topic>/gazebo/frc/simulator/pwm/1</topic>
       <multiplier>0</multiplier>
     </plugin>
