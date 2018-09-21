@@ -9,7 +9,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://minibot/visualSTL/base.STL" />
+        <mesh filename="package://lemon_minibot_core/gazebo/minibot_Exported/minibot/visualSTL/base.STL" />
       </geometry>
       <material name="000000">
         <color rgba="0 0 0 1" />
@@ -18,11 +18,11 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://minibot/collisionSTL/base.STL" />
+        <mesh filename="package://lemon_minibot_core/gazebo/minibot_Exported/minibot/collisionSTL/base.STL" />
       </geometry>
     </collision>
   </link>
-  <link name="l_whee;">
+  <link name="l_whee">
     <inertial>
       <origin xyz="-0.01 -1.5556132770822E-15 1.27675647831893E-15" rpy="0 0 0" />
       <mass value="0.0714319766280304" />
@@ -31,7 +31,7 @@
     <visual>
       <origin xyz="0.0930787246278284 0.0033654103350226 -0.278465383032101" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://minibot/visualSTL/l_whee;.STL" />
+        <mesh filename="package://lemon_minibot_core/gazebo/minibot_Exported/minibot/visualSTL/l_whee.STL" />
       </geometry>
       <material name="00FF00">
         <color rgba="0 1 0 1" />
@@ -40,7 +40,7 @@
     <collision>
       <origin xyz="0.0930787246278284 0.0033654103350226 -0.278465383032101" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://minibot/collisionSTL/l_whee;.STL" />
+        <mesh filename="package://lemon_minibot_core/gazebo/minibot_Exported/minibot/collisionSTL/l_whee.STL" />
       </geometry>
     </collision>
   </link>
@@ -53,7 +53,7 @@
     <visual>
       <origin xyz="-0.191268280756042 0.00336541033502103 -0.278465383032099" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://minibot/visualSTL/r_wheel.STL" />
+        <mesh filename="package://lemon_minibot_core/gazebo/minibot_Exported/minibot/visualSTL/r_wheel.STL" />
       </geometry>
       <material name="00FF80">
         <color rgba="0.501960784313725 1 0 1" />
@@ -62,7 +62,7 @@
     <collision>
       <origin xyz="-0.191268280756042 0.00336541033502103 -0.278465383032099" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://minibot/collisionSTL/r_wheel.STL" />
+        <mesh filename="package://lemon_minibot_core/gazebo/minibot_Exported/minibot/collisionSTL/r_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -75,7 +75,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://minibot/visualSTL/ball.STL" />
+        <mesh filename="package://lemon_minibot_core/gazebo/minibot_Exported/minibot/visualSTL/ball.STL" />
       </geometry>
       <material name="FFFF80">
         <color rgba="0.501960784313725 1 1 1" />
@@ -84,14 +84,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://minibot/collisionSTL/ball.STL" />
+        <mesh filename="package://lemon_minibot_core/gazebo/minibot_Exported/minibot/collisionSTL/ball.STL" />
       </geometry>
     </collision>
   </link>
-  <joint name="base-l_whee;" type="continuous">
+  <joint name="base-l_whee" type="continuous">
     <origin xyz="-0.0930787246278284 -0.0033654103350226 0.278465383032101" rpy="0 0 0" />
     <parent link="base" />
-    <child link="l_whee;" />
+    <child link="l_whee" />
     <axis xyz="-1 -5.50460220501117E-15 4.19506831259459E-15" />
     <dynamics damping="0" friction="0" />
   </joint>

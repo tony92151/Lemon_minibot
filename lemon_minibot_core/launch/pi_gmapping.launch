@@ -43,7 +43,7 @@
 	</node>
 
 	<!-- open gmapping -->
-	<include file="$(find lemon_minibot_core)/launch/Gmapping.launch">
+	<include file="$(find lemon_minibot_core)/launch/gmapping.launch">
 		<arg name="odom_frame" value="$(arg output_frame)"/>
 	</include>
 
