@@ -14,8 +14,8 @@ from nav_msgs.msg import Odometry
 class BaseControl:
     def __init__(self):        
         self.odom_freq = float( rospy.get_param('~odom_freq', '50') ) # hz of odom pub
-        self.odom_topic = rospy.get_param('~odom_topic', '/odom/odom_encoder') # topic name
-        self.baseId = rospy.get_param('~base_id', 'base_link') # base link
+        self.odom_topic = rospy.get_param('~odom_topic', '/odom') # topic name
+        self.baseId = rospy.get_param('~base_id', 'base_footprint') # base link
         self.odomId = rospy.get_param('~odom_id', 'odom') # odom link
         self.VxCov = float( rospy.get_param('~vx_cov', '1.0') ) # covariance for Vx measurement
         self.VyawCov = float( rospy.get_param('~vyaw_cov', '1.0') ) # covariance for Vyaw measurement
@@ -25,7 +25,7 @@ class BaseControl:
         self.scale = rospy.get_param('~scale', '1.0')
 
         try:
-            self.serial = serial.Serial('/dev/mega_controller' , 115200, timeout= 0.5 )
+            self.serial = serial.Serial('/dev/due_controller' , 115200, timeout= 0.5 )
             rospy.loginfo("Connect success ...")
 
             try:
@@ -164,7 +164,7 @@ class BaseControl:
         else:
         	L_forward = 1
     	self.WR_send = abs(self.WR_send)
-    	self.WL_send = abs(self.WL_send)
+    	self.WL_send = abs(self.WL_send-15)
         if self.WR_send > 255:
             self.WR_send = 255
         if self.WL_send > 255:

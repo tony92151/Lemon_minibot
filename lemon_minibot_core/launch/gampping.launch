@@ -39,6 +39,7 @@
         <param name="base_frame" value="base_footprint"/>
     </node>
 
-    <node name="world_transform" pkg="tf" type="static_transform_publisher" args="0 0 0.1 0 0 0 1 /base_footprint /laser_link 100"/>
-
+    
+    <node pkg="tf" type="static_transform_publisher" name="base_footprint2base_link" args=" 0 0 0.05 0 0 0 /base_footprint /base_link 10"/>
+    <node pkg="tf" type="static_transform_publisher" name="base_link2laser_link"     args="0 0 0.1 0 0 1 /base_link /laser_link 10"/>
 </launch>
