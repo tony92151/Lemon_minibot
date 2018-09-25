@@ -14,7 +14,7 @@ from nav_msgs.msg import Odometry
 class BaseControl:
     def __init__(self):        
         self.odom_freq = float( rospy.get_param('~odom_freq', '50') ) # hz of odom pub
-        self.odom_topic = rospy.get_param('~odom_topic', '/odom') # topic name
+        self.odom_topic = rospy.get_param('~odom_topic', '/odom2base_footprint') # topic name
         self.baseId = rospy.get_param('~base_id', 'base_footprint') # base link
         self.odomId = rospy.get_param('~odom_id', 'odom') # odom link
         self.VxCov = float( rospy.get_param('~vx_cov', '1.0') ) # covariance for Vx measurement

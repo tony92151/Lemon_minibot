@@ -15,15 +15,15 @@
 	<node pkg="lemon_minibot_control" name="base_control"  type="base.py" output="screen">
 		<!-- some times, the encoder will not correct, we can scale it -->
 		<param name="scale"   value="2"/> 
-		<param name="pub_tf"   value="false"/>   
+		<param name="pub_tf"   value="$(arg pub_tf)"/>   
 		<param name="scale"   value="2"/>   
 	</node>
 
 	<!-- star ydlidar  -->
-	<!--<include file="$(find lemon_minibot_control)/launch/ydlidar.launch"/> -->
+	<include file="$(find lemon_minibot_control)/launch/ydlidar.launch"/>
 
 	<!-- rf2o -->
-	<!--<include file="$(find lemon_minibot_control)/launch/rf2o.launch"/> -->
+	<include file="$(find lemon_minibot_control)/launch/rf2o.launch"/> 
 
 	<!-- robot_pose_ekf -->
 	<!--<include file="$(find lemon_minibot_control)/launch/rf2o.launch"/> 
@@ -36,9 +36,10 @@
 	<!-- default subscribe /imu_data  /odom  /vo-->
 
 	<!-- open gmapping -->
-	<!--<include file="$(find lemon_minibot_core)/launch/gmapping.launch">
-		<arg name="odom_frame" value="$(arg output_frame)"/>
-	</include> -->
+	<include file="$(find lemon_minibot_core)/launch/gmapping.launch">
+		<arg name="odom_frame" value="odom"/>
+		<!--<arg name="odom_frame" value="$(arg output_frame)"/> -->
+	</include>
 
 	<!-- <group if="$(arg only_use_rf2o)">
 		<param name="pub_tf" value="false"/>

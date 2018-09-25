@@ -35,11 +35,10 @@
         <param name="llsamplestep" value="0.01"/>
         <param name="lasamplerange" value="0.005"/>
         <param name="lasamplestep" value="0.005"/>
-        <param name="odom_frame" value="$(arg odom_frame)"/>
-        <param name="base_frame" value="base_footprint"/>
+        
     </node>
 
     
-    <node pkg="tf" type="static_transform_publisher" name="base_footprint2base_link" args=" 0 0 0.05 0 0 0 /base_footprint /base_link 10"/>
-    <node pkg="tf" type="static_transform_publisher" name="base_link2laser_link"     args="0 0 0.1 0 0 1 /base_link /laser_link 10"/>
+    <node pkg="tf" type="static_transform_publisher" name="base_footprint2base_link" args=" 0 0 0.05 0 0 0 /base_footprint /base_link 20"/>
+    <node pkg="tf" type="static_transform_publisher" name="base_link2laser_link"     args="-0.02 0 0.5 0 0 0 /base_link /laser_link 20"/>
 </launch>
