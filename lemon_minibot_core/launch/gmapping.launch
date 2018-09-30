@@ -41,4 +41,5 @@
     
     <node pkg="tf" type="static_transform_publisher" name="base_footprint2base_link" args=" 0 0 0.05 0 0 0 /base_footprint /base_link 20"/>
     <node pkg="tf" type="static_transform_publisher" name="base_link2laser_link"     args="-0.02 0 0.5 0 0 0 /base_link /laser_link 20"/>
+    <node pkg="tf" type="static_transform_publisher" name="tag_trans" args=" 0.5 0 0 0 1.57 1.57 /odom /usb_cam 20"/>
 </launch>
