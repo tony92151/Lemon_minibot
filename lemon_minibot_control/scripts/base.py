@@ -164,7 +164,7 @@ class BaseControl:
         else:
         	L_forward = 1
     	self.WR_send = abs(self.WR_send)
-    	self.WL_send = abs(self.WL_send-15)
+    	self.WL_send = abs(self.WL_send-10)
         if self.WR_send > 255:
             self.WR_send = 255
         if self.WL_send > 255:

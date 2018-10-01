@@ -36,10 +36,10 @@
 	<!-- default subscribe /imu_data  /odom  /vo-->
 
 	<!-- open gmapping -->
-	<include file="$(find lemon_minibot_core)/launch/gmapping.launch">
-		<arg name="odom_frame" value="odom"/>
-		<!--<arg name="odom_frame" value="$(arg output_frame)"/> -->
-	</include>
+	<!-- <include file="$(find lemon_minibot_core)/launch/gmapping.launch">
+		<arg name="odom_frame" value="odom"/> 
+		
+	</include> -->
 
 	<!-- <group if="$(arg only_use_rf2o)">
 		<param name="pub_tf" value="false"/>
@@ -47,5 +47,8 @@
 	<group unless="$(arg only_use_rf2o)">
 		<node pkg="lemon_minibot" name="keyboard_teleop" type="keyboard_teleop.py" output="screen"/>
 	</group> -->
+	<node pkg="tf" type="static_transform_publisher" name="base_footprint2base_link" args=" 0 0 0.05 0 0 0 /base_footprint /base_link 20"/>
+    <node pkg="tf" type="static_transform_publisher" name="base_link2laser_link"     args="-0.02 0 0.5 0 0 0 /base_link /laser_link 20"/>
+    <node pkg="tf" type="static_transform_publisher" name="tag_trans" args=" 0.5 0 0 0 1.57 1.57 /odom /usb_cam 20"/>
 
 </launch>
