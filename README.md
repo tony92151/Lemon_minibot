@@ -1,5 +1,6 @@
 # Lemon minibot
 
+![lemon minibot](https://github.com/tony92151/Lemon_minibot/blob/master/image/IMG_3659.JPG)
 
 Hardware
 
