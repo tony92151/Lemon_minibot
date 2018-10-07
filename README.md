@@ -44,3 +44,5 @@ Compile All
 $ cd ..
 
 $ catlin_make
+
+[![](http://img.youtube.com/vi/cpJnvoSW7_M/0.jpg)](http://www.youtube.com/watch?v=cpJnvoSW7_M "demo video")
