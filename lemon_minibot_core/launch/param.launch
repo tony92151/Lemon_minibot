@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam command="load" file="$(find lemon_minibot_core)/param/location.yaml" ns="ar"/>
+
+    <node pkg="lemon_minibot" name="smash" type="smash.py" output="screen"/>
+</launch>
