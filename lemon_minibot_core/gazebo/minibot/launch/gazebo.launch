@@ -6,12 +6,13 @@
     pkg="tf"
     type="static_transform_publisher"
     args="0 0 0 0 0 0 base_link base_footprint 40" />
-  <node
-    name="spawn_model"
-    pkg="gazebo_ros"
-    type="spawn_model"
-    args="-file $(find minibot)/robots/minibot.urdf -urdf -model minibot"
-    output="screen" />
+  
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find minibot)/robots/minibot.xacro'"/>
+
+  <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+   args="-urdf -param robot_description -model mybot" />
+
+
   <node
     name="fake_joint_calibration"
     pkg="rostopic"
