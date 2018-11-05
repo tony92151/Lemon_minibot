@@ -1,0 +1,149 @@
+<robot
+  name="minibot">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.097204 5.5511E-17 -0.049199"
+        rpy="0 0 0" />
+      <mass
+        value="3" />
+      <inertia
+        ixx="0.040304"
+        ixy="4.9362E-18"
+        ixz="0.00066866"
+        iyy="0.041109"
+        iyz="1.1589E-18"
+        izz="0.07014" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minibot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minibot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="l_wh">
+    <inertial>
+      <origin
+        xyz="-1.3878E-17 -0.01 -2.7756E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.3" />
+      <inertia
+        ixx="2.5261E-05"
+        ixy="2.7793E-22"
+        ixz="4.1451E-23"
+        iyy="4.6188E-05"
+        iyz="-8.0779E-25"
+        izz="2.5438E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minibot/meshes/l_wh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.28627 0.66275 0.32941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minibot/meshes/l_wh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.153 -0.084"
+      rpy="0 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="l_wh" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="r_wh">
+    <inertial>
+      <origin
+        xyz="0 0.01 2.7756E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.3" />
+      <inertia
+        ixx="2.5261E-05"
+        ixy="2.8014E-22"
+        ixz="4.1451E-23"
+        iyy="4.6188E-05"
+        iyz="6.5376E-39"
+        izz="2.5438E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minibot/meshes/r_wh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.28627 0.66275 0.32941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minibot/meshes/r_wh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.153 -0.084"
+      rpy="0 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="r_wh" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+</robot>
