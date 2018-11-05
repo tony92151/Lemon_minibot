@@ -1,7 +1,10 @@
+<?xml version='1.0'?>
 <robot
   name="minibot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find t3)/robots/t3.gazebo" />
+  <xacro:include filename="$(find minibot)/robots/minibot.gazebo" />
+  <xacro:include filename="$(find minibot)/robots/materials.xacro" />
+
 
   <link
     name="base_link">

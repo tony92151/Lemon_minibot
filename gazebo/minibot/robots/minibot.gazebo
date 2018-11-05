@@ -10,7 +10,7 @@
       <rightJoint>r_joint</rightJoint>
       <wheelSeparation>0.25</wheelSeparation>
       <wheelDiameter>0.072</wheelDiameter>
-      <torque>10</torque>
+      <torque>20</torque>
       <commandTopic>car/cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
@@ -18,7 +18,16 @@
     </plugin>
   </gazebo>
 
+  <gazebo reference="base_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
 
+  <gazebo reference="l_wh">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="r_wh">
+    <material>Gazebo/Green</material>
+  </gazebo> 
 
 
 </robot>
