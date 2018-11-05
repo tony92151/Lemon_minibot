@@ -12,6 +12,7 @@
   <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
    args="-urdf -param robot_description -model mybot" />
 
+  <node pkg="tf" type="static_transform_publisher" name="tag_trans" args=" 0.0 0 0 0 0 0 /chassis /base_link 20"/>
 
   <node
     name="fake_joint_calibration"

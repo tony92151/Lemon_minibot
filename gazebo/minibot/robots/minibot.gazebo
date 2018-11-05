@@ -14,7 +14,7 @@
       <commandTopic>car/cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
-      <robotBaseFrame>base_link</robotBaseFrame>
+      <robotBaseFrame>chassis</robotBaseFrame>
     </plugin>
   </gazebo>
 
