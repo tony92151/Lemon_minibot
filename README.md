@@ -1,8 +1,8 @@
 # Lemon minibot
 
-<img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/IMG_3659.JPG" align="left" width="300"/>
+<img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/IMG_3659.JPG" align="right" width="300"/>
 
-<img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/gazebo_home.png" align="right" width="300"/>
+<img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/gazebo_home.png" align="right" width="350"/>
 
 # Hardware
 
