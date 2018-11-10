@@ -36,7 +36,7 @@
           rgba="0.79216 0.81961 0.93333 1" />
       </material>
     </visual>
-    <collision>
+    <collision name='caster_collision'>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
@@ -44,6 +44,18 @@
         <mesh
           filename="package://minibot/meshes/base_link.STL" />
       </geometry>
+
+      <surface>
+        <friction>
+          <ode>
+            <mu>0</mu>
+            <mu2>0</mu2>
+            <slip1>1.0</slip1>
+            <slip2>1.0</slip2>
+          </ode>
+        </friction>
+      </surface>
+
     </collision>
   </link>
   <link
