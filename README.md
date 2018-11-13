@@ -53,7 +53,7 @@ https://medium.com/@tony92151/%E5%B0%88%E9%A1%8C%E7%AD%86%E8%A8%98-ros-1-c87bd92
 
 ## Starup setting
 
-> cd catkin_ws/src/Lemon_minibot/startup
+> cd catkin_ws/src/Lemon_minibot/starup/
 
 >sudo chmod +x initenv.sh
 
@@ -63,11 +63,7 @@ then enter your password
 
 ## YDLidar X4 starup setting
 
-<<<<<<< HEAD
-> roscd ydlidar/startup/
-=======
-> roscd ydlidar/starup
->>>>>>> master
+> roscd ydlidar/starup/
 
 > sudo chmod 777 ./*
 
