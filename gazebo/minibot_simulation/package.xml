@@ -1,5 +1,5 @@
 <package>
-  <name>minibot</name>
+  <name>minibot_simulation</name>
   <version>1.0.0</version>
   <description>
     <p>URDF Description package for minibot</p>
