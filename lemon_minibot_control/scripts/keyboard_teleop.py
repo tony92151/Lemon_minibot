@@ -6,7 +6,7 @@ from geometry_msgs.msg import Twist
 import sys, select, termios, tty
 
 msg = """
-Control Your bot!
+Control Your minibot!
 ---------------------------
 Moving around:
         w
@@ -37,8 +37,8 @@ def vels(target_linear_vel, target_angular_vel):
 if __name__=="__main__":
     settings = termios.tcgetattr(sys.stdin)
 
-    gage = 10
-    max_ = 100 
+    gage = 0.5
+    max_ = 5
 
     rospy.init_node('AB_teleop')
     pub = rospy.Publisher('/car/cmd_vel', Twist, queue_size=5)

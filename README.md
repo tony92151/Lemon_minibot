@@ -63,11 +63,23 @@ then enter your password
 
 ## YDLidar X4 startup setting
 
-> roscd ydlidar/startup
+> roscd ydlidar/startup/
 
 > sudo chmod 777 ./*
 
 > sudo sh initenv.sh
+
+## Simulation test
+
+> roslaunch turtlebot3_description turtlebot_world2.launch
+
+then gazebo with minibot & home will star
+
+to control your robot in gazebo, run keyboard_teleop.py to publish message to control node (/car/cmd_vel)
+
+> rosrun lemon_minibot_control keyboard_teleop.py
+
+
 
 
 [![](http://img.youtube.com/vi/WHaNt73xu4k/0.jpg)](http://www.youtube.com/watch?v=WHaNt73xu4k "demo video")

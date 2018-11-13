@@ -9,23 +9,23 @@
   </gazebo>
 
   <gazebo reference="wheel_left_link">
-    <mu1>0.1</mu1>
-    <mu2>0.1</mu2>
-    <kp>500000.0</kp>
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
+    <kp>50000.0</kp>
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>0.1</maxVel>
+    <maxVel>0.05</maxVel>
     <fdir1>1 0 0</fdir1>
     <material>Gazebo/Green</material>
   </gazebo>
 
   <gazebo reference="wheel_right_link">
-    <mu1>0.1</mu1>
-    <mu2>0.1</mu2>
-    <kp>500000.0</kp>
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
+    <kp>50000.0</kp>
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>0.1</maxVel>
+    <maxVel>0.05</maxVel>
     <fdir1>1 0 0</fdir1>
     <material>Gazebo/Green</material>
   </gazebo>
@@ -58,9 +58,9 @@
     <material>Gazebo/Grey</material>
   </gazebo>
 
-  <gazebo>
+  <!-- <gazebo>
     <plugin name="turtlebot3_waffle_pi_controller" filename="libgazebo_ros_diff_drive.so">
-      <commandTopic>cmd_vel</commandTopic>
+      <commandTopic>car/cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <odometrySource>world</odometrySource>
@@ -71,15 +71,33 @@
       <publishWheelJointState>true</publishWheelJointState>
       <legacyMode>false</legacyMode>
       <updateRate>30</updateRate>
-      <leftJoint>wheel_left_joint</leftJoint>
-      <rightJoint>wheel_right_joint</rightJoint>
+      <leftJoint>wheel_right_joint</leftJoint>
+      <rightJoint>wheel_left_joint</rightJoint>
       <wheelSeparation>0.287</wheelSeparation>
       <wheelDiameter>0.066</wheelDiameter>
-      <wheelAcceleration>1</wheelAcceleration>
-      <wheelTorque>10</wheelTorque>
+      <wheelAcceleration>0.2</wheelAcceleration>
+      <wheelTorque>1</wheelTorque>
       <rosDebugLevel>na</rosDebugLevel>
     </plugin>
-  </gazebo>
+</gazebo> -->
+
+<gazebo>
+    <plugin name="turtlebot3_waffle_pi_controller" filename="libgazebo_ros_diff_drive.so">
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>10</updateRate>
+      <leftJoint>wheel_left_joint</leftJoint>
+      <rightJoint>wheel_right_joint</rightJoint>
+      <wheelSeparation>0.28</wheelSeparation>
+      <wheelDiameter>0.066</wheelDiameter>
+      <torque>1</torque>
+      <commandTopic>car/cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <robotBaseFrame>chassis</robotBaseFrame>
+    </plugin>
+</gazebo>
 
   <gazebo>
     <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
