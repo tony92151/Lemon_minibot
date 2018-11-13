@@ -71,7 +71,7 @@ then enter your password
 
 ## Simulation test
 
-> roslaunch turtlebot3_description turtlebot_world2.launch
+> roslaunch turtlebot3_copy turtlebot_world2.launch
 
 then gazebo with minibot & home will star
 

@@ -37,8 +37,9 @@ def vels(target_linear_vel, target_angular_vel):
 if __name__=="__main__":
     settings = termios.tcgetattr(sys.stdin)
 
-    gage = 0.5
-    max_ = 5
+    gage = 0.4
+    gage2 = 0.2
+    max_ = 3
 
     rospy.init_node('AB_teleop')
     pub = rospy.Publisher('/car/cmd_vel', Twist, queue_size=5)
@@ -53,23 +54,23 @@ if __name__=="__main__":
         while(1):
             key = getKey()
             if key == 'w' :
-                target_linear_vel = target_linear_vel + gage
+                target_linear_vel = target_linear_vel + gage2
 		if target_linear_vel >= max_:
 		    target_linear_vel = max_
                 status = status + 1
                 print vels(target_linear_vel,target_angular_vel)
             elif key == 'x' :
-                target_linear_vel = target_linear_vel - gage
+                target_linear_vel = target_linear_vel - gage2
 		if target_linear_vel <= -max_:
 		    target_linear_vel = -max_
                 status = status + 1
                 print vels(target_linear_vel,target_angular_vel)
             elif key == 'd' :
-                target_angular_vel = target_angular_vel + gage
+                target_angular_vel = target_angular_vel - gage
                 status = status + 1
                 print vels(target_linear_vel,target_angular_vel)
             elif key == 'a' :
-                target_angular_vel = target_angular_vel - gage
+                target_angular_vel = target_angular_vel + gage
                 status = status + 1
                 print vels(target_linear_vel,target_angular_vel)
             elif key == ' ' or key == 's' :
