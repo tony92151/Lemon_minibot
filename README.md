@@ -81,7 +81,7 @@ to control your robot in gazebo, run keyboard_teleop.py to publish message to co
 
 > rosrun lemon_minibot_control keyboard_teleop.py
 
-<img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/simulation_gmapping.JPG" align="right" width="300"/>
+<img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/simulation_gmapping.png" align="right" width="300"/>
 
 When mapping complete, save the map
 
