@@ -49,9 +49,9 @@ https://medium.com/@tony92151/%E5%B0%88%E9%A1%8C%E7%AD%86%E8%A8%98-ros-1-c87bd92
 
 > cd ..
 
-> catlin_make
+> catkin_make
 
-## Startup setting
+## Starup setting
 
 > cd catkin_ws/src/Lemon_minibot/startup
 
@@ -61,9 +61,13 @@ then enter your password
 
 >./initenv.sh
 
-## YDLidar X4 startup setting
+## YDLidar X4 starup setting
 
+<<<<<<< HEAD
 > roscd ydlidar/startup/
+=======
+> roscd ydlidar/starup
+>>>>>>> master
 
 > sudo chmod 777 ./*
 
