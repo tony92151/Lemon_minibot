@@ -93,8 +93,8 @@
       <torque>1</torque>
       <commandTopic>car/cmd_vel</commandTopic>
       <publishOdomTF>false</publishOdomTF>
-      <odometryTopic>odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
+      <odometryTopic>car_odom</odometryTopic>
+      <odometryFrame>car_odom</odometryFrame>
       <robotBaseFrame>base_footprint</robotBaseFrame>
       <robotBaseFrame>chassis</robotBaseFrame>
     </plugin>
@@ -105,7 +105,7 @@
       <alwaysOn>true</alwaysOn>
       <bodyName>imu_link</bodyName>
       <frameName>imu_link</frameName>
-      <topicName>imu</topicName>
+      <topicName>imu_data</topicName>
       <serviceName>imu_service</serviceName>
       <gaussianNoise>0.0</gaussianNoise>
       <updateRate>200</updateRate>

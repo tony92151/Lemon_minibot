@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 	<!-- rf2o -->
-	<node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_laser_odometry" output="screen">
+	<node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_laser_odometry" >
 	    <param name="laser_scan_topic" value="/scan"/>        # topic where the lidar scans are being published
 	    <param name="odom_topic" value="/odom/odom_rf2o" />              # topic where tu publish the odometry estimations
 	    <param name="publish_tf" value="true" />      # wheter or not to publish the tf::transform (base-odom)

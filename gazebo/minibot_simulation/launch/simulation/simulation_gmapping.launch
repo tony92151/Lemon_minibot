@@ -8,11 +8,16 @@
 		<include file="$(find joy)/launch/joy2t.launch"/>
 	</group>
 	
-	
+	<include file="$(find lemon_minibot_control)/launch/rf2o.launch"/>
 
 	<include file="$(find lemon_minibot_core)/launch/gmapping.launch"/>
 
-	<include file="$(find lemon_minibot_control)/launch/rf2o.launch"/>
+	<!--<node pkg="tf" type="static_transform_publisher" 
+			name="odom_combine" 
+			args="0 0 0 0 0 0 /odom /ekf_odom 30"/>-->
+
+	
+	<!--<include file="$(find lemon_minibot_control)/launch/ekf.launch"/> -->
 
 	<node pkg="rviz" type="rviz" name="rviz" required="true"
           args="-d $(find minibot_simulation)/config/rviz.rviz"/>
