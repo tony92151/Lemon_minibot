@@ -87,6 +87,18 @@ When mapping complete, save the map
 
 > rosrun map_server map_saver -f ~/homemap
 
+## set up amazom alexa skill
+
+
+
+## Use amazom alexa 
+
+> roscd lemon_minibot_control/scripts/alexa
+
+> ./ngrok http 5000
+
+> rosrun lemon_minibot_control alexa_skill.py
+
 
 
 
