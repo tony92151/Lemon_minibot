@@ -92,7 +92,6 @@
       <wheelDiameter>0.066</wheelDiameter>
       <torque>1</torque>
       <commandTopic>car/cmd_vel</commandTopic>
-      <publishOdomTF>false</publishOdomTF>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>base_footprint</robotBaseFrame>

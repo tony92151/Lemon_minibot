@@ -12,9 +12,8 @@
 
 	<include file="$(find lemon_minibot_core)/launch/gmapping.launch"/>
 
-	<include file="$(find lemon_minibot_control)/launch/rf2o.launch"/>
-
 	<node pkg="rviz" type="rviz" name="rviz" required="true"
           args="-d $(find minibot_simulation)/config/rviz.rviz"/>
 
+turtlebot_world2.launch
 </launch>
