@@ -34,7 +34,7 @@ def hello(name):
 
 @ask.intent('action')
 def hello_world():
-    speech_text = 'kick me'
+    speech_text = 'move me'
     return statement(speech_text).simple_card('HelloWorld', speech_text)
 
 

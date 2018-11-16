@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="use_joy" default="false" />
+
+
+	<!-- choose if use joystick -->
+	<group if="$(arg use_joy)">
+		<include file="$(find joy)/launch/joy2t.launch"/>
+	</group>
+	
+	
+
+	<include file="$(find lemon_minibot_core)/launch/icp.launch"/>
+
+	<node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find minibot_simulation)/config/rviz.rviz"/>
+
+</launch>
