@@ -43,7 +43,7 @@ https://medium.com/@tony92151/%E5%B0%88%E9%A1%8C%E7%AD%86%E8%A8%98-ros-1-c87bd92
 
 4.instsll dependent
 
-> sudo apt-get install remmina synaptic gimp git ros-kinetic-navigation ros-kinetic-amcl ros-kinetic-slam-gmapping ros-kinetic-mrpt-slam ros-kinetic-mrpt-icp-slam-2d ros-kinetic-robot-localization -y
+> sudo apt-get install remmina synaptic gimp git ros-kinetic-navigation ros-kinetic-amcl ros-kinetic-slam-gmapping ros-kinetic-mrpt-slam ros-kinetic-mrpt-icp-slam-2d ros-kinetic-robot-localization -y 
 
 5.Compile all
 
@@ -86,6 +86,18 @@ to control your robot in gazebo, run keyboard_teleop.py to publish message to co
 When mapping complete, save the map
 
 > rosrun map_server map_saver -f ~/homemap
+
+## set up amazom alexa skill
+
+
+
+## Use amazom alexa 
+
+> roscd lemon_minibot_control/scripts/alexa
+
+> ./ngrok http 5000
+
+> rosrun lemon_minibot_control alexa_skill.py
 
 
 
