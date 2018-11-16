@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="use_joy" default="false" />
+
+	<arg name="map_file" default="/homemap.yaml"/>
+
+	<!-- choose if use joystick -->
+	<group if="$(arg use_joy)">
+		<include file="$(find joy)/launch/joy2t.launch"/>
+	</group>
+	
+	<node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+	<include file="$(find lemon_minibot_control)/launch/amcl.launch"/>
+
+	<include file="$(find lemon_minibot_control)/launch/move_base.launch"/>
+
+	<node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find minibot_simulation)/config/navigation_rviz.rviz"/>
+
+</launch>
