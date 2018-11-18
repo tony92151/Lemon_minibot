@@ -99,15 +99,23 @@ When mapping complete, save the map
 
 
 
-## Use amazom alexa 
+## Use amazom alexa
 
-> roscd lemon_minibot_control/scripts/alexa
+### install nesessary pkg
+
+> sudo apt-get install ngrok-client
+
+> sudo pip install request flask flask-ask requests unidecode
+
+### run web server to connect to amazom alexa skill
+
+> roscd lemon_minibot_control/scripts/alexa/
 
 > ./ngrok http 5000
 
 > rosrun lemon_minibot_control alexa_skill.py
 
-
-
-
+# Demo video
 [![](http://img.youtube.com/vi/WHaNt73xu4k/0.jpg)](http://www.youtube.com/watch?v=WHaNt73xu4k "demo video")
+
+[![](http://img.youtube.com/vi/vS1muTZ_ens/0.jpg)](http://www.youtube.com/watch?v=vS1muTZ_ens "short cut")
