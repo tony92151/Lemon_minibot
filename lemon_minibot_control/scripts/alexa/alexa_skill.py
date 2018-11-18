@@ -9,7 +9,7 @@
 # sudo pip install requests
 # sudo pip install unidecode
 
-from flask import Flask
+from flask import Flask 
 
 from flask_ask import Ask , statement , question , session
 
@@ -28,14 +28,20 @@ def launch():
     speech_text = 'Welcome to the lemon minibot, I am your personal guiding robot,If you would like to control me, just say go and command, like, Go forward, or Go backward, or go left, or go right'
     return question(speech_text)
 
-@ask.intent('HelloIntent', default={'name': 'World'})
-def hello(name):
-    return statement('Hello, {}'.format(name))
+
+
+@ask.intent('hello',convert={'Name': 'name'})
+def hello(Name):
+    return statement('Hello {}'.format(Name))
+
+@ask.intent('HelloIntent',convert={'Name': 'name'})
+def hello(Name):
+    return statement('Hello {}'.format(Name))
 
 @ask.intent('action')
 def hello_world():
     speech_text = 'move me'
-    return statement(speech_text).simple_card('HelloWorld', speech_text)
+    return statement(speech_text)
 
 
 @ask.intent('')

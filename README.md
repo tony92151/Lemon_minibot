@@ -71,6 +71,8 @@ then enter your password
 
 ## Simulation test
 
+### run gmapping
+
 > roslaunch turtlebot3_copy turtlebot_world2.launch
 
 then gazebo with minibot & home will star
@@ -86,6 +88,12 @@ to control your robot in gazebo, run keyboard_teleop.py to publish message to co
 When mapping complete, save the map
 
 > rosrun map_server map_saver -f ~/homemap
+
+### run navigation
+
+> roslaunch minibot_simulation simulation_navigation.launch map_file:=$HOME/homemap.yaml
+
+<img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/simulation_navigation.png" width="300"/>
 
 ## set up amazom alexa skill
 
