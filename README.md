@@ -73,7 +73,7 @@ then enter your password
 
 ### run gmapping
 
-> roslaunch turtlebot3_copy turtlebot_world2.launch
+> 
 
 then gazebo with minibot & home will star
 
@@ -99,15 +99,15 @@ When mapping complete, save the map
 
 
 
-## Use amazom alexa
+## Use amazon alexa
 
-### install nesessary pkg
+### install necessary pkg
 
 > sudo apt-get install ngrok-client
 
 > sudo pip install request flask flask-ask requests unidecode
 
-### run web server to connect to amazom alexa skill
+### run web server to connect to amazon alexa skill
 
 > roscd lemon_minibot_control/scripts/alexa/
 
