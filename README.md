@@ -73,7 +73,7 @@ then enter your password
 
 ### run gmapping
 
-> 
+> roslaunch turtlebot3_copy turtlebot_world2.launch
 
 then gazebo with minibot & home will star
 

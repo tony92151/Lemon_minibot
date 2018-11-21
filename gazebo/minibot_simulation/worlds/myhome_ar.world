@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <sdf version='1.6'>
   <world name='default'>
     <light name='sun' type='directional'>
@@ -2345,5 +2346,8 @@
         <gravity>1</gravity>
       </link>
     </model>
+
+
+
   </world>
 </sdf>
