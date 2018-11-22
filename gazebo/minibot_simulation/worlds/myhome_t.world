@@ -2347,14 +2347,15 @@
     </model>
 
 
-<model name='Marker1'>
+
+      <model name='Marker1'>
       <static>1</static>
       <link name='link'>
         <visual name='visual'>
           <geometry>
             <mesh>
               <uri>model://marker1/meshes/Marker1.dae</uri>
-              <scale>0.8 0.8 0.8</scale>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
@@ -2372,7 +2373,7 @@
           <geometry>
             <mesh>
               <uri>model://marker2/meshes/Marker2.dae</uri>
-              <scale>0.8 0.8 0.8</scale>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
@@ -2390,7 +2391,7 @@
           <geometry>
             <mesh>
               <uri>model://marker3/meshes/Marker3.dae</uri>
-              <scale>0.8 0.8 0.8</scale>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
@@ -2408,7 +2409,7 @@
           <geometry>
             <mesh>
               <uri>model://marker3/meshes/Marker3.dae</uri>
-              <scale>0.8 0.8 0.8</scale>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
@@ -2418,6 +2419,9 @@
       </link>
       <pose frame=''>8.8 -1 0 0 0 -2.355</pose>
     </model>
+
+
+
 
   </world>
 </sdf>
