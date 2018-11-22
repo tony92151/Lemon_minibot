@@ -77,6 +77,8 @@ then enter your password
 
 then gazebo with minibot & home will star
 
+> roslaunch lemon_minibot_detect ar_tag_sim.launch
+
 > roslaunch minibot_simulation simulation_gmapping.launch
 
 to control your robot in gazebo, run keyboard_teleop.py to publish message to control node (/car/cmd_vel)

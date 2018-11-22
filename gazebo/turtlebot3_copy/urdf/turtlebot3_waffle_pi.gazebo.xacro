@@ -167,6 +167,7 @@
  <gazebo reference="camera_rgb_frame">
     <material>Gazebo/Green</material>
     <sensor type="camera" name="camera1">
+      <pose>0 0 0 0 0 0</pose>
       <update_rate>30.0</update_rate>
       <camera name="head">
         <horizontal_fov>1.3962634</horizontal_fov>
