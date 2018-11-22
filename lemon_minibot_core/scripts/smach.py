@@ -5,6 +5,21 @@ import time
 import sys
 import math
 import string
+import yaml 
+import os
+
+
+# get local dir
+curPath = os.path.dirname(os.path.realpath(__file__))
+# get yaml dir & yaml file's name
+yamlPath = os.path.join(curPath, "param/smach.yaml")
+
+f = open(yamlPath, 'r', encoding='utf-8')
+cfg = f.read()
+
+d = yaml.load(cfg)
+
+
 
 
 rospy.init_node('smash', anonymous=True)
