@@ -1,2 +1,4 @@
-location1: {Confidence: 0, x: 100, y: 0}
-
+location1: {Confidence: 100, x: 1.71, y: -1.06}
+location2: {Confidence: 100, x: -5.13, y: 1.4}
+location3: {Confidence: 100, x: 8.88, y: -1.7}
+location4: {Confidence: 0, x: 0.0, y: 0.0}

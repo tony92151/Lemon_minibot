@@ -79,6 +79,10 @@ then gazebo with minibot & home will star
 
 > roslaunch lemon_minibot_detect ar_tag_sim.launch
 
+to save the addres from ar-tag, run tf listener
+
+> rosrun lemon_minibot_core ar_local.py
+
 > roslaunch minibot_simulation simulation_gmapping.launch
 
 to control your robot in gazebo, run keyboard_teleop.py to publish message to control node (/car/cmd_vel)

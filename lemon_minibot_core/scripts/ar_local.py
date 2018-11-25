@@ -8,20 +8,29 @@ import roslib
 roslib.load_manifest("rosparam")
 import rosparam
 import time
+import os
+import rospkg
 
 import geometry_msgs.msg
 import turtlesim.srv
+
+#get pkg dir & get to param
+rospack = rospkg.RosPack()
+dirpath = rospack.get_path('lemon_minibot_core')
+os.chdir(dirpath+'/param')
+
 
 class artag_server:
     def __init__(self):
         ########### load yaml file ###########
         try:
-            self.data = rosparam.load_file("test.yaml",default_namespace="artag")
+            self.data = rosparam.load_file("location.yaml",default_namespace="artag")
+
             print "load yaml file success"
             #update to server
             for params, ns in self.data:
                 rosparam.upload_params(ns,params)
-            time.sleep(1)
+            time.sleep(0.5)
         except:
             print "load yaml file faile"
             sys.exit(0)
@@ -43,7 +52,7 @@ class artag_server:
             self.local4_x = float(rospy.get_param('~/artag/location4/x'))
             self.local4_y = float(rospy.get_param('~/artag/location4/y'))
             print "load param success"
-            time.sleep(1)
+            time.sleep(0.5)
             print "**********************************************"
             print "value:"
             print ("local1 { con %d , x %.4f , y %.4f }" % (self.local1_con,self.local1_x,self.local1_y))
@@ -51,7 +60,7 @@ class artag_server:
             print ("local3 { con %d , x %.4f , y %.4f }" % (self.local3_con,self.local3_x,self.local3_y))
             print ("local4 { con %d , x %.4f , y %.4f }" % (self.local4_con,self.local4_x,self.local4_y))
             print "**********************************************"
-            time.sleep(1)
+            time.sleep(0.5)
         except:
             print "load param faile"
             sys.exit(0)
