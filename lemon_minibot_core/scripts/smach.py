@@ -1,38 +1,62 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 import rospy
+import smach
 import time
-import sys
-import math
-import string
-import yaml 
-import os
-
-
-# get local dir
-curPath = os.path.dirname(os.path.realpath(__file__))
-# get yaml dir & yaml file's name
-yamlPath = os.path.join(curPath, "param/smach.yaml")
-
-f = open(yamlPath, 'r', encoding='utf-8')
-cfg = f.read()
-
-d = yaml.load(cfg)
 
 
 
 
-rospy.init_node('smash', anonymous=True)
-sm = smash()
-rospy.spin()
-loca1_con = rospy.get_param('~/ar/location1/Confidence', 0)
-sloca_x = rospy.get_param('~/ar/location1/x', 0)
 
-for x in range(0, 50):
-    print loca_x
-    time.sleep(0.01)
-rospy.set_param('~/ar/location1/x', 100)
-for x in range(0, 50):
-    print loca_x
-    time.sleep(0.01)
+# define state Foo
+class Foo(smach.State):
+    def __init__(self):
+        smach.State.__init__(self, outcomes=['outcome1','outcome2'])
+        self.counter = 0
 
+    def execute(self, userdata):
+        rospy.loginfo('Executing state FOO')
+        if self.counter < 3:
+            self.counter += 1
+            time.sleep(2)
+            return 'outcome1'
+        else:
+            time.sleep(2)
+            return 'outcome2'
+
+
+# define state Bar
+class Bar(smach.State):
+    def __init__(self):
+        smach.State.__init__(self, outcomes=['outcome2'])
+
+    def execute(self, userdata):
+        rospy.loginfo('Executing state BAR')
+        time.sleep(2)
+        return 'outcome2'
+        
+
+
+
+# main
+def main():
+    rospy.init_node('smach_example_state_machine')
+
+    # Create a SMACH state machine
+    sm = smach.StateMachine(outcomes=['outcome4', 'outcome5'])
+
+    # Open the container
+    with sm:
+        # Add states to the container
+        smach.StateMachine.add('FOO', Foo(), 
+                               transitions={'outcome1':'BAR', 
+                                            'outcome2':'outcome4'})
+        smach.StateMachine.add('BAR', Bar(), 
+                               transitions={'outcome2':'FOO'})
+
+    # Execute SMACH plan
+    outcome = sm.execute()
+
+
+if __name__ == '__main__':
+    main()

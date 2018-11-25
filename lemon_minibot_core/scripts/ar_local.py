@@ -25,7 +25,6 @@ class artag_server:
         ########### load yaml file ###########
         try:
             self.data = rosparam.load_file("location.yaml",default_namespace="artag")
-
             print "load yaml file success"
             #update to server
             for params, ns in self.data:
@@ -70,28 +69,35 @@ class artag_server:
         self.listener3 = tf.TransformListener()
         self.listener4 = tf.TransformListener()
 
+    def reload(self):
+        self.data = rosparam.load_file("location.yaml",default_namespace="artag")
+        #update to server
+        for params, ns in self.data:
+            rosparam.upload_params(ns,params)
+
     def dump(self):
-        rosparam.dump_params("test.yaml","artag")
-        print "yaml file saved"
+        rosparam.dump_params("location.yaml","artag")
+        
 
     def save2Server(self):
-        rospy.set_param('~/artag/location1/Confidence',self.local1_con)
-        rospy.set_param('~/artag/location1/x',self.local1_x)
-        rospy.set_param('~/artag/location1/y',self.local1_y)
+        rospy.set_param('/artag/location1/Confidence',self.local1_con)
+        rospy.set_param('/artag/location1/x',self.local1_x)
+        rospy.set_param('/artag/location1/y',self.local1_y)
 
-        rospy.set_param('~/artag/location2/Confidence',self.local2_con)
-        rospy.set_param('~/artag/location2/x',self.local2_x)
-        rospy.set_param('~/artag/location2/y',self.local2_y)
+        rospy.set_param('/artag/location2/Confidence',self.local2_con)
+        rospy.set_param('/artag/location2/x',self.local2_x)
+        rospy.set_param('/artag/location2/y',self.local2_y)
 
-        rospy.set_param('~/artag/location3/Confidence',self.local3_con)
-        rospy.set_param('~/artag/location3/x',self.local3_x)
-        rospy.set_param('~/artag/location3/y',self.local3_y)
+        rospy.set_param('/artag/location3/Confidence',self.local3_con)
+        rospy.set_param('/artag/location3/x',self.local3_x)
+        rospy.set_param('/artag/location3/y',self.local3_y)
 
-        rospy.set_param('~/artag/location4/Confidence',self.local4_con)
-        rospy.set_param('~/artag/location4/x',self.local4_x)
-        rospy.set_param('~/artag/location4/y',self.local4_y)
+        rospy.set_param('/artag/location4/Confidence',self.local4_con)
+        rospy.set_param('/artag/location4/x',self.local4_x)
+        rospy.set_param('/artag/location4/y',self.local4_y)
 
         
+
         print "**********************************************"
         print "value:"
         print ("local1 { con %d , x %.4f , y %.4f }" % (self.local1_con,self.local1_x,self.local1_y))
@@ -164,7 +170,7 @@ class artag_server:
         for params, ns in self.data:
             rosparam.upload_params(ns,params)
 
-        time.sleep(0.5)
+        time.sleep(0.1)
 
 
 
@@ -176,7 +182,11 @@ if __name__ == '__main__':
         if not rospy.is_shutdown():
             up.update()
             up.save2Server()
+            up.dump()
+            up.reload()
+
         else:
             up.dump()
+            print "yaml file saved"
             print "Shutting down"
             sys.exit(0)

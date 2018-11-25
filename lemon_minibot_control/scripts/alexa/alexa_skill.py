@@ -25,23 +25,27 @@ ask = Ask(app, "/minibot_controller")
 
 @ask.launch
 def launch():
-    speech_text = 'Welcome to the lemon minibot, I am your personal guiding robot,If you would like to control me, just say go and command, like, Go forward, or Go backward, or go left, or go right'
+    speech_text = 'Welcome to the lemon minibot, I am your personal guiding robot'
     return question(speech_text)
 
+@ask.intent('help')
+def hello_world():
+    speech_text = 'If you would like to control me, just say go and command, like, Go forward, or Go backward, or go left, or go right'
+    return question(speech_text)
 
 
 @ask.intent('hello',convert={'Name': 'name'})
 def hello(Name):
-    return statement('Hello {}'.format(Name))
+    return question('Hello {}'.format(Name))
 
 @ask.intent('HelloIntent',convert={'Name': 'name'})
 def hello(Name):
-    return statement('Hello {}'.format(Name))
+    return question('Hello {}'.format(Name))
 
 @ask.intent('action')
 def hello_world():
     speech_text = 'move me'
-    return statement(speech_text)
+    return question(speech_text)
 
 
 @ask.intent('')

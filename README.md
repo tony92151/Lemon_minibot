@@ -41,11 +41,15 @@ https://medium.com/@tony92151/%E5%B0%88%E9%A1%8C%E7%AD%86%E8%A8%98-ros-1-c87bd92
 
 > git clone https://github.com/MAPIRlab/rf2o_laser_odometry
 
-4.instsll dependent
+4.Clone repository for smach
+
+>git clone https://github.com/ros-visualization/executive_smach_visualization.git
+
+5.instsll dependent
 
 > sudo apt-get install remmina synaptic gimp git ros-kinetic-navigation ros-kinetic-amcl ros-kinetic-slam-gmapping ros-kinetic-mrpt-slam ros-kinetic-mrpt-icp-slam-2d ros-kinetic-robot-localization ros-kinetic-ar-track-alvar -y 
 
-5.Compile all
+6.Compile all
 
 > cd ..
 
@@ -100,6 +104,10 @@ When mapping complete, save the map
 > roslaunch minibot_simulation simulation_navigation.launch map_file:=$HOME/homemap.yaml
 
 <img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/simulation_navigation.png" width="300"/>
+
+## Smach viewer 
+
+> rosrun smach_viewer smach_viewer.py
 
 ## set up amazom alexa skill
 
