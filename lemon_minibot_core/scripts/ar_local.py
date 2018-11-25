@@ -16,7 +16,7 @@ class artag_server:
     def __init__(self):
         ########### load yaml file ###########
         try:
-            self.data = rosparam.load_file("location.yaml",default_namespace="artag")
+            self.data = rosparam.load_file("test.yaml",default_namespace="artag")
             print "load yaml file success"
             #update to server
             for params, ns in self.data:
