@@ -6,13 +6,18 @@
 
 # Hardware
 
-lenovo ideapad 100(Raspberry Pi3)
+Raspberry Pi3
+(I use the motherboard of lenovo ideapad 100)
 
 YDLidar X4
 
-Arduino mega2560
+Arduino mega2560 & motor controller
 
 Motor with A/B encode
+
+14.8v li-po battery
+
+Laser cut frame
 
 # Software
 
@@ -125,11 +130,30 @@ When mapping complete, save the map
 
 > roscd lemon_minibot_control/scripts/alexa/
 
-> ./ngrok http 5000
-
 > rosrun lemon_minibot_control alexa_skill.py
+
+> ./ngrok http 5000
 
 # Demo video
 [![](http://img.youtube.com/vi/WHaNt73xu4k/0.jpg)](http://www.youtube.com/watch?v=WHaNt73xu4k "demo video")
 
 [![](http://img.youtube.com/vi/vS1muTZ_ens/0.jpg)](http://www.youtube.com/watch?v=vS1muTZ_ens "short cut")
+
+#Reference
+
+[1]turtlebot3
+https://github.com/ROBOTIS-GIT/turtlebot3
+
+[2]gazebo_models
+https://github.com/mikaelarguedas/gazebo_models
+
+[3]roslaunch API Usage
+http://wiki.ros.org/roslaunch/API%20Usage
+
+[4]Module rosparam in python
+http://docs.ros.org/diamondback/api/rosparam/html/
+
+[5]smach Tutorials
+http://wiki.ros.org/smach/Tutorials/Getting%20Started
+
+
