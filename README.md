@@ -108,6 +108,10 @@ When mapping complete, save the map
 
 > roslaunch minibot_simulation simulation_navigation.launch map_file:=$HOME/homemap.yaml
 
+nav goal sender
+
+> roslaunch lemon_minibot_control movebase_seq.launch
+
 <img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/simulation_navigation.png" width="300"/>
 
 ## Smach viewer 
@@ -139,7 +143,7 @@ When mapping complete, save the map
 
 [![](http://img.youtube.com/vi/vS1muTZ_ens/0.jpg)](http://www.youtube.com/watch?v=vS1muTZ_ens "short cut")
 
-#Reference
+# Reference
 
 [1]turtlebot3
 https://github.com/ROBOTIS-GIT/turtlebot3

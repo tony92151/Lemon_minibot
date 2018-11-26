@@ -47,8 +47,8 @@ def init():
     
     try:
         slam = int(rospy.get_param('~/smach/slam'))
-        navigation = float(rospy.get_param('~/smach/navigation'))
-        control = float(rospy.get_param('~/smach/control'))
+        navigation = int(rospy.get_param('~/smach/navigation'))
+        control = int(rospy.get_param('~/smach/control'))
 
         print "load param success"
         time.sleep(0.5)
@@ -78,7 +78,19 @@ def hello_world():
 
 ###############################################
 @ask.intent('slam')
-def hello_world():
+def slam():
+    speech_text = 'I am so exciting! Lest go mapping!'
+    rospy.set_param('~/smach/slam',1)
+    return question(speech_text)
+
+@ask.intent('navigation')
+def navigation():
+    speech_text = 'I am so exciting! Lest go mapping!'
+    rospy.set_param('~/smach/navigation','1')
+    return question(speech_text)
+
+@ask.intent('control')
+def control():
     speech_text = 'I am so exciting! Lest go mapping!'
     rospy.set_param('~/smach/slam','1')
     return question(speech_text)
