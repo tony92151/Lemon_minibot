@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
- 
 
+	<include file="$(find minibot_simulation)/launch/simulation/simulation_navigation.launch">
+        <arg name="map_file" value="$(env HOME)/homemap.yaml" /> 
+    </include>
+
+    <include file="$(find lemon_minibot_control)/launch/movebase_seq.launch"/>
 
 </launch>

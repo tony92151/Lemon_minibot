@@ -54,10 +54,9 @@ class MoveBaseSeq():
         n = 3
         # Returns a list of lists [[point1], [point2],...[pointn]]
         #points = [points_seq[i:i+n] for i in range(0, len(points_seq), n)]
-        points=[[self.local1_x,self.local1_y,0],
-                [self.local2_x,self.local2_y,0],
-                [self.local3_x,self.local3_y,0],
-                ]
+        points=[[0,0,0],
+                [self.local1_x,self.local1_y,0],
+                [self.local2_x,self.local2_y,0],]
         rospy.loginfo(str(points))
         for point in points:
             #Exploit n variable to cycle in quat_seq

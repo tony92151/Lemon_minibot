@@ -7,6 +7,8 @@ import json
 import requests
 import time
 import unidecode
+import random
+
 ######
 import sys, select, termios, tty
 import rospy
@@ -71,41 +73,96 @@ def launch():
     speech_text = 'Welcome to the lemon minibot, I am your personal guiding robot'
     return question(speech_text)
 
-@ask.intent('help')
+@ask.intent('help_intent')
 def hello_world():
     speech_text = 'If you would like to control me, just say go and command, like, Go forward, or Go backward, or go left, or go right'
+    #speech_text = render_template('win')
     return question(speech_text)
 
 ###############################################
-@ask.intent('slam')
+@ask.intent('open_slam')
 def slam():
-    speech_text = 'I am so exciting! Lest go mapping!'
-    rospy.set_param('~/smach/slam',1)
+    if rospy.get_param('~/smach/slam')!=1:
+        speech_text = 'I am so exciting! Lest go mapping!'
+        rospy.set_param('~/smach/slam',1)
+    else:
+        speech_text = 'Mapping are already launched!'
     return question(speech_text)
 
-@ask.intent('navigation')
-def navigation():
-    speech_text = 'I am so exciting! Lest go mapping!'
-    rospy.set_param('~/smach/navigation','1')
+@ask.intent('close_slam')
+def slam():
+    if rospy.get_param('~/smach/slam')!=1:
+        speech_text = 'Mapping not launched yet!'
+    else:
+        speech_text = 'OK! the map is saved, go navigation right now'
+        #rospy.set_param('~/smach/slam',0)
+    
+    rospy.set_param('~/smach/slam',0)
     return question(speech_text)
 
-@ask.intent('control')
-def control():
-    speech_text = 'I am so exciting! Lest go mapping!'
-    rospy.set_param('~/smach/slam','1')
+@ask.intent('open_navigation')
+def slam():
+    if rospy.get_param('~/smach/navigation')!=0:
+        speech_text = 'Lest go navigation, tell me any where you want to go!'
+        rospy.set_param('~/smach/navigation',0)
+    else:
+        speech_text = 'navigation are already launched!'
     return question(speech_text)
+
+@ask.intent('close_navigation')
+def slam():
+    if rospy.get_param('~/smach/navigation')==-1:
+        speech_text = 'navigation not launched yet!'
+    else:
+        speech_text = 'Have a nice day! Goodbye!'
+        #rospy.set_param('~/smach/navigation',0)
+    
+    rospy.set_param('~/smach/navigation',-1)
+    return question(speech_text)
+
+@ask.intent('navigation',convert={'navi': str})
+def navigation(navi):
+    if rospy.get_param('~/smach/navigation')!=-1:
+        local =	{
+            "bedroom": 1,
+            "livingroom": 2,
+            "location three": 3,
+            "location four":4
+            }
+        if rospy.get_param('~/smach/slam')==1:
+            speech_text = 'Please close mapping first'
+        else:
+            speech_text = 'OK, just follow me, i will take you to '+navi
+            ans = local.get(navi)
+            rospy.set_param('~/smach/navigation',ans)
+    else:
+        speech_text = 'Please star navigation first'
+    return question(speech_text)
+
+@ask.intent('control',convert={'dir': str})
+def control(dir):
+    gogo =	{
+        "forward": 1,
+        "backeard": 2,
+        "left": 3,
+        "right":4
+        }
+    speech_text = ['Here you are!','Pice of cake!','Yes, my lord','command accept']
+    ans = gogo.get(dir)
+    rospy.set_param('~/smach/control',ans)
+    return question(random.choice(speech_text))
 
 
 ###############################################
 
 
-@ask.intent('hello',convert={'Name': 'name'})
-def hello(Name):
-    return question('Hello {}'.format(Name))
+@ask.intent('hello',convert={'name': str})
+def hello(name):
+    speech_text = ['Hello ' + name,'Nice to meet you '+name,
+                    'hi '+name+', how are you doing',
+                    'hi '+name+', nice to meet you']
+    return question(random.choice(speech_text))
 
-@ask.intent('HelloIntent',convert={'Name': 'name'})
-def hello(Name):
-    return question('Hello {}'.format(Name))
 
 @ask.intent('action')
 def hello_world():
@@ -125,7 +182,7 @@ def session_ended():
 
 
 def reloadp():
-    data = rosparam.load_file("location.yaml",default_namespace="smach")
+    data = rosparam.load_file("smach.yaml",default_namespace="smach")
     #update to server
     for params, ns in data:
         rosparam.upload_params(ns,params)
@@ -136,12 +193,12 @@ def dump():
 
 
 if __name__ == '__main__':
+    init()
+    app.run(debug=True)
     while True:
         if not rospy.is_shutdown():
-            app.run(debug=True)
             dump()
             reloadp()
-            
         else:
             dump()
             print "yaml file saved"

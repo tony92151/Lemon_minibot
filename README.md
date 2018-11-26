@@ -64,7 +64,7 @@ https://medium.com/@tony92151/%E5%B0%88%E9%A1%8C%E7%AD%86%E8%A8%98-ros-1-c87bd92
 
 > cd catkin_ws/src/Lemon_minibot/starup/
 
->sudo chmod +x initenv.sh
+> sudo chmod +x initenv.sh
 
 then enter your password
 
@@ -114,6 +114,7 @@ nav goal sender
 
 <img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/simulation_navigation.png" width="300"/>
 
+
 ## Smach viewer 
 
 > rosrun smach_viewer smach_viewer.py
@@ -132,11 +133,26 @@ nav goal sender
 
 ### run web server to connect to amazon alexa skill
 
-> roscd lemon_minibot_control/scripts/alexa/
-
 > rosrun lemon_minibot_control alexa_skill.py
 
+> roscd lemon_minibot_control/scripts/alexa/
 > ./ngrok http 5000
+
+## Demo setup
+
+> roscore
+
+> roslaunch turtlebot3_copy turtlebot_world2.launch
+
+> rosparam load ~/catkin_ws/src/Lemon_minibot/lemon_minibot_core/param/location.yaml
+> rosparam load ~/catkin_ws/src/Lemon_minibot/lemon_minibot_core/param/smach.yaml
+
+> rosrun lemon_minibot_core smach3.py
+
+> roscd lemon_minibot_control/scripts/alexa/
+> ./ngrok http 5000
+
+> rosrun lemon_minibot_core core_controller.py
 
 # Demo video
 [![](http://img.youtube.com/vi/WHaNt73xu4k/0.jpg)](http://www.youtube.com/watch?v=WHaNt73xu4k "demo video")

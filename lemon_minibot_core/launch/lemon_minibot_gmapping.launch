@@ -2,13 +2,10 @@
 <launch>
 	<arg name="use_joy" default="false" />
 
+	<include file="$(find lemon_minibot_detect)/launch/ar_tag_sim.launch"/>
 
-	<!-- choose if use joystick -->
-	<group if="$(arg use_joy)">
-		<include file="$(find joy)/launch/joy2t.launch"/>
-	</group>
-	<group unless="$(arg use_joy)">
-		<node pkg="lemon_minibot" name="keyboard_teleop" type="keyboard_teleop.py" output="screen"/>
-	</group>
+	<node pkg="lemon_minibot_core" name="ar_local" type="ar_local.py" output="screen"/>
+
+	<include file="$(find minibot_simulation)/launch/simulation/simulation_gmapping.launch"/>
 
 </launch>

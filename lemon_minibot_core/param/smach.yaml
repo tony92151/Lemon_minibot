@@ -1,3 +1,1 @@
-slam: 0
-navigation: 0
-control: 0
+{control: 0, navigation: 2, slam: 0}

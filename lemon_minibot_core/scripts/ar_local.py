@@ -96,16 +96,6 @@ class artag_server:
         rospy.set_param('/artag/location4/x',self.local4_x)
         rospy.set_param('/artag/location4/y',self.local4_y)
 
-        
-
-        print "**********************************************"
-        print "value:"
-        print ("local1 { con %d , x %.4f , y %.4f }" % (self.local1_con,self.local1_x,self.local1_y))
-        print ("local2 { con %d , x %.4f , y %.4f }" % (self.local2_con,self.local2_x,self.local2_y))
-        print ("local3 { con %d , x %.4f , y %.4f }" % (self.local3_con,self.local3_x,self.local3_y))
-        print ("local4 { con %d , x %.4f , y %.4f }" % (self.local4_con,self.local4_x,self.local4_y))
-        print "**********************************************"
-
 
     def update(self):
 
@@ -172,9 +162,6 @@ class artag_server:
 
         time.sleep(0.1)
 
-
-
-
 if __name__ == '__main__':
     rospy.init_node('tf_listener')
     up = artag_server()
@@ -182,8 +169,6 @@ if __name__ == '__main__':
         if not rospy.is_shutdown():
             up.update()
             up.save2Server()
-            up.dump()
-            up.reload()
 
         else:
             up.dump()
