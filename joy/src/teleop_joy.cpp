@@ -46,7 +46,7 @@ TeleopTurtle::TeleopTurtle():
 void TeleopTurtle::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
   geometry_msgs::Twist twist;
-  twist.angular.z = (a_scale_*joy->buttons[angular_]>a_scale_*joy->buttons[angular_-2])?(a_scale_*joy->buttons[angular_]*(-1)):(a_scale_*joy->buttons[angular_-2]);
+  twist.angular.z = (a_scale_*joy->buttons[angular_-2]>a_scale_*joy->buttons[angular_])?(a_scale_*joy->buttons[angular_]*(-1)):(a_scale_*joy->buttons[angular_-2]);
   //twist.angular.z = (a_scale_*joy->buttons[angular_])*(a_scale_*joy->buttons[angular_-2]);
   twist.linear.x = l_scale_*joy->axes[linearX_];
   twist.linear.y = l_scale_*joy->axes[linearY_];
@@ -57,7 +57,7 @@ void TeleopTurtle::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "teleop_turtle");
+  ros::init(argc, argv, "teleop_minibot");
   TeleopTurtle teleop_turtle;
 
   ros::spin();

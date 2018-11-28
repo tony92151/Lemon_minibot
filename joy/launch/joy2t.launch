@@ -7,8 +7,8 @@
   <param name="axisX_linear" value="1" type="int"/>
   <param name="axisY_linear" value="0" type="int"/>
   <param name="axis_angular" value="3" type="int"/>
-  <param name="scale_linear" value="80" type="double"/>
-  <param name="scale_angular" value="150" type="double"/>
+  <param name="scale_linear" value="0.5" type="double"/>
+  <param name="scale_angular" value="-0.8" type="double"/>
 
   <node pkg="joy" name="teleop" type="teleop_joy"/>
 
