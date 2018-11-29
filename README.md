@@ -136,6 +136,7 @@ nav goal sender
 > rosrun lemon_minibot_control alexa_skill.py
 
 > roscd lemon_minibot_control/scripts/alexa/
+
 > ./ngrok http 5000
 
 ## Demo setup
@@ -145,11 +146,13 @@ nav goal sender
 > roslaunch turtlebot3_copy turtlebot_world2.launch
 
 > rosparam load ~/catkin_ws/src/Lemon_minibot/lemon_minibot_core/param/location.yaml
+
 > rosparam load ~/catkin_ws/src/Lemon_minibot/lemon_minibot_core/param/smach.yaml
 
 > rosrun lemon_minibot_core smach3.py
 
 > roscd lemon_minibot_control/scripts/alexa/
+
 > ./ngrok http 5000
 
 > rosrun lemon_minibot_core core_controller.py
@@ -157,7 +160,7 @@ nav goal sender
 # Demo video
 [![](http://img.youtube.com/vi/WHaNt73xu4k/0.jpg)](http://www.youtube.com/watch?v=WHaNt73xu4k "demo video")
 
-[![](http://img.youtube.com/vi/vS1muTZ_ens/0.jpg)](http://www.youtube.com/watch?v=vS1muTZ_ens "short cut")
+[![](http://img.youtube.com/vi/rqNOdHbekDU/0.jpg)](http://www.youtube.com/watch?v=rqNOdHbekDU "final")
 
 # Reference
 
