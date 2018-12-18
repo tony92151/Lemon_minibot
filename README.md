@@ -106,7 +106,7 @@ https://medium.com/@tony92151/%E5%AF%A6%E6%88%B0-ros-gazebo-1-bdb941f184e1
 
 > rostopic echo /car/cmd_vel 
 
-<img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/joy.png" align="left" width="360"/>
+<img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/joy.png" width="360"/>
 
 ### Run gmapping
 
