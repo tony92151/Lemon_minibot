@@ -78,9 +78,37 @@ then enter your password
 
 > sudo sh initenv.sh
 
+## Add ar-tag models 
+
+> cd
+
+> git clone https://github.com/mikaelarguedas/gazebo_models.git
+
+> cd ar_tags/scripts/
+
+> ./generate_markers_model.py -i ~/Documents/gazebo_models/ar_tags/images -g ~/.gazebo/models -s 80
+
 ## Simulation test
 
-### run gmapping
+> roslaunch turtlebot3_copy turtlebot_world2.launch
+
+
+If it is first time open gazebo, it will take about 10 min to download models
+or you can download manual
+
+See detial here
+
+https://medium.com/@tony92151/%E5%AF%A6%E6%88%B0-ros-gazebo-1-bdb941f184e1
+
+## joystick test (RONEVER SR-012)
+
+> roslaunch joy joy2t.launch
+
+> rostopic echo /car/cmd_vel 
+
+<img src="https://github.com/tony92151/Lemon_minibot/blob/master/image/joy.png" align="left" width="360"/>
+
+### Run gmapping
 
 > roslaunch turtlebot3_copy turtlebot_world2.launch
 
@@ -124,6 +152,14 @@ nav goal sender
 
 
 ## Use amazon alexa
+
+> rosrun lemon_minibot_core smach3.py
+
+> roscd lemon_minibot_control/scripts/alexa/
+
+> ./ngrok http 5000
+
+and ngrok will give you the address then pastes it to "Alexa skill kit" end point
 
 ### install necessary pkg
 
