@@ -194,7 +194,7 @@ and ngrok will give you the address then pastes it to "Alexa skill kit" end poin
 > rosrun lemon_minibot_core core_controller.py
 
 # Demo video
-[![](http://img.youtube.com/vi/WHaNt73xu4k/0.jpg)](http://www.youtube.com/watch?v=WHaNt73xu4k "demo video")
+[![](http://img.youtube.com/vi/-EDsaaNJGFU/0.jpg)](http://www.youtube.com/watch?v=-EDsaaNJGFU "demo")
 
 [![](http://img.youtube.com/vi/rqNOdHbekDU/0.jpg)](http://www.youtube.com/watch?v=rqNOdHbekDU "final")
 
